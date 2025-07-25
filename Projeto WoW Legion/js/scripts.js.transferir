@@ -1,0 +1,59 @@
+$(document).ready(function(){
+	
+	// lang-switch
+	// ------------------------------------------------------------------------------------------------------------------
+	
+	$(".lang-switch > .lang-list > .active").click(function(){
+		event.preventDefault();
+		$('.lang-switch > .lang-list').toggleClass("active");
+	});
+
+	$(document).mouseup(function (e) {
+		if ($('.lang-switch').has(e.target).length === 0 && $('.lang-switch > .lang-list').hasClass('active')){
+			$('.lang-switch > .lang-list').toggleClass("active");
+		}
+	});
+	
+	// social drop
+	// ------------------------------------------------------------------------------------------------------------------
+	
+	$(".social > .social-list > .open-social").click(function(){
+		$('.social > .social-list').toggleClass("active");
+	});
+
+	$(document).mouseup(function (e) {
+		if ($('.social').has(e.target).length === 0 && $('.social > .social-list').hasClass('active')){
+			$('.social > .social-list').toggleClass("active");
+		}
+	});
+	
+	
+	var swiper = new Swiper('.swiper-container', {
+		
+		slidesPerView: 3,
+		speed: 300,
+		spaceBetween: 0,
+		initialSlide: 2,
+		effect: 'coverflow',
+		centeredSlides: true,
+		slidesPerView: 'auto',
+		loop: true,
+		coverflowEffect: {
+			rotate: 0,
+			stretch: 0,
+			depth: 120,
+			modifier: -5,
+			slideShadows: true,
+		},
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+		},
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		
+    });
+});
+
